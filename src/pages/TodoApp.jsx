@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { API, graphqlOperation } from 'aws-amplify';
+import { createTodo, updateTodo, deleteTodo } from '../graphql/mutations';
+import { listTodos } from '../graphql/queries';
 
 import { utilService } from '../services/util.service';
 import { todoService } from '../services/todo.service';
@@ -21,27 +24,35 @@ export const TodoApp = () => {
 
   const loadTodos = async () => {
     try {
-      const todos = await todoService.query();
+      const todoData = await API.graphql(graphqlOperation(listTodos));
+      const todos = todoData.data.listTodos.items;
       setTodos(todos);
     } catch (err) {
       console.log(err);
     }
   };
 
-  const onAddBtn = () => {
-    setShowNewTodo(true);
-  };
-  const onEditBtn = todo => {
-    setCurrTodo(todo);
+  const onAddBtn = todo => {
+    todo && setCurrTodo(todo);
     setShowNewTodo(true);
   };
   const onSave = async todo => {
-    await todoService.saveTodo(todo);
-    loadTodos();
+    try {
+      await API.graphql(
+        graphqlOperation(todo?.id ? updateTodo : createTodo, { input: todo })
+      );
+      loadTodos();
+    } catch (err) {
+      console.log('error creating todo:', err);
+    }
   };
-  const onRemove = todoId => {
-    todoService.removeTodo(todoId);
-    setTodos(todos.filter(todo => todo._id !== todoId));
+  const onRemove = async id => {
+    try {
+      await API.graphql(graphqlOperation(deleteTodo, { input: { id } }));
+    } catch (err) {
+      console.log('error creating todo:', err);
+    }
+    loadTodos();
   };
 
   return (
@@ -66,7 +77,7 @@ export const TodoApp = () => {
           />
         </div>
         {todos?.length > 0 ? (
-          <TodoList todos={todos} onRemove={onRemove} onEdit={onEditBtn} />
+          <TodoList todos={todos} onRemove={onRemove} onEdit={onAddBtn} />
         ) : (
           <h2>No Todos to show</h2>
         )}

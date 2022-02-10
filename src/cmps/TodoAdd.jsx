@@ -6,16 +6,19 @@ import { Button } from './UI/Button';
 import { Backdrop } from './UI/Backdrop';
 
 export const TodoAdd = ({ showNewTodo, onSave, todo, setTodo }) => {
-  const [title, setTitle] = useState(todo?.title || '');
+  const initialState = { name: '', description: '' };
+  const [formState, setFormState] = useState(todo || initialState);
 
   const onSubmit = e => {
     e.preventDefault();
-    if (!title) {
+    if (!formState?.name) {
       console.log('Enter a Todo title please');
       return;
     }
-    onSave(todo ? { ...todo, title } : { title });
-    setTitle('');
+    const { id } = todo;
+    const { name, description } = formState;
+    onSave(todo ? { id, name, description } : formState);
+    setFormState(initialState);
     onCloseAddTodo();
   };
   const onCloseAddTodo = () => {
@@ -32,8 +35,8 @@ export const TodoAdd = ({ showNewTodo, onSave, todo, setTodo }) => {
           <input
             type='text'
             placeholder='Todo Name'
-            value={title}
-            onChange={e => setTitle(e.target.value)}></input>
+            value={formState.name || ''}
+            onChange={e => setFormState({ name: e.target.value })}></input>
           <Button
             onClick={onSubmit}
             txt={'Save Todo'}

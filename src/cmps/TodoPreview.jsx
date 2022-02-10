@@ -7,7 +7,7 @@ export const TodoPreview = ({ todo, onRemove, onEdit }) => {
   return (
     <Card className='todo-preview-container flex align-center'>
       <div className='todo-preview'>
-        <h3>{todo.title}</h3>
+        <h3>{todo.name}</h3>
       </div>
       <div className='todo-preview-actions flex align-center'>
         <Button
@@ -19,7 +19,7 @@ export const TodoPreview = ({ todo, onRemove, onEdit }) => {
         />
         <FaTimes
           style={{ color: 'red', cursor: 'pointer' }}
-          onClick={() => onRemove(todo._id)}
+          onClick={() => onRemove(todo.id)}
         />
       </div>
     </Card>
