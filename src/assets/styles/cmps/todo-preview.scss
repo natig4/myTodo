@@ -5,8 +5,14 @@
     background-color: #edf2f4;
     .todo-preview {
         flex-grow: 1;
+        gap: 3rem;
         h3 {
             font-size: rem(22px);
+        }
+        h4 {
+            font-size: rem(18px);
+            color: #0f3e91;
+            padding: 0 0.5rem;
         }
     }
     .todo-preview-actions {

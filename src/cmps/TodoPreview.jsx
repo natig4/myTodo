@@ -6,8 +6,9 @@ import { Button } from './UI/Button';
 export const TodoPreview = ({ todo, onRemove, onEdit }) => {
   return (
     <Card className='todo-preview-container flex align-center'>
-      <div className='todo-preview'>
+      <div className='todo-preview flex align-center'>
         <h3>{todo.name}</h3>
+        <h4>{todo.description}</h4>
       </div>
       <div className='todo-preview-actions flex align-center'>
         <Button
