@@ -8,7 +8,7 @@ import { Backdrop } from './UI/Backdrop';
 export const TodoAdd = ({ showNewTodo, onSave, todo, setTodo }) => {
   const initialState = { name: '', description: '' };
   const [formState, setFormState] = useState(todo || initialState);
-  console.log(formState);
+
   const onSubmit = e => {
     e.preventDefault();
     if (!formState?.name) {

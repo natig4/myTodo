@@ -3,6 +3,9 @@
     border-bottom: 1px solid black;
     .nav-links {
         gap: 1rem;
+        a {
+            font-size: rem(20px);
+        }
     }
     .logo {
         font-size: rem(22px);

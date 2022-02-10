@@ -10,6 +10,11 @@
       "StackName": "amplify-awstodo-dev-141607",
       "StackId": "arn:aws:cloudformation:eu-west-1:229075091548:stack/amplify-awstodo-dev-141607/3f6e26c0-8a6b-11ec-8810-06b60229bd19",
       "AmplifyAppId": "d3vqbfunpbb3o4"
+    },
+    "categories": {
+      "auth": {
+        "awstodo16b856db": {}
+      }
     }
   }
 }

@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import { createTodo, updateTodo, deleteTodo } from '../graphql/mutations';
 import { listTodos } from '../graphql/queries';
 
 import { utilService } from '../services/util.service';
-import { todoService } from '../services/todo.service';
 import { TodoList } from '../cmps/TodoList';
 import Card from '../cmps/UI/Card';
 import { TodoAdd } from '../cmps/TodoAdd';
 import { Button } from '../cmps/UI/Button';
 
-export const TodoApp = () => {
+const TodoApp = () => {
   const [todos, setTodos] = useState();
   const [currTodo, setCurrTodo] = useState();
   const [showNewTodo, setShowNewTodo] = useState();
-  const [currUser, setCurrUser] = useState({
-    userName: 'nati',
-  });
+  const [user, setUser] = useState(API.Auth.user.username);
 
   useEffect(() => {
     loadTodos();
@@ -37,6 +36,8 @@ export const TodoApp = () => {
     setShowNewTodo(true);
   };
   const onSave = async todo => {
+    const updatedTodo = { ...todo, user };
+    console.log(updatedTodo);
     try {
       await API.graphql(
         graphqlOperation(todo?.id ? updateTodo : createTodo, { input: todo })
@@ -67,9 +68,7 @@ export const TodoApp = () => {
       )}
       <Card className='todo-container flex column align-center'>
         <div className='todo-header flex align-center'>
-          <h1>
-            {`${utilService.capitalizeFirst(currUser?.userName)}'s`} Todos{' '}
-          </h1>
+          <h1>{`${utilService.capitalizeFirst(user)}'s`} Todos </h1>
           <Button
             onClick={onAddBtn}
             txt={'Add New Todo'}
@@ -85,3 +84,4 @@ export const TodoApp = () => {
     </>
   );
 };
+export default withAuthenticator(TodoApp);

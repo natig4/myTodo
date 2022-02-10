@@ -6,7 +6,7 @@ import routes from './routes';
 import AppHeader from './cmps/AppHeader';
 import AppFooter from './cmps/AppFooter';
 
-export const App = () => {
+const App = () => {
   return (
     <div className='page-contianer flex column'>
       <AppHeader />
@@ -14,7 +14,7 @@ export const App = () => {
         <Switch>
           <Route path='/' exact>
             <Redirect to='/home' />
-          </Route>
+          </Route>{' '}
           {routes.map(route => (
             <Route
               key={route.path}
@@ -22,10 +22,12 @@ export const App = () => {
               component={route.component}
               path={route.path}
             />
-          ))}
-        </Switch>
-      </main>
+          ))}{' '}
+        </Switch>{' '}
+      </main>{' '}
       <AppFooter />
     </div>
   );
 };
+
+export default App;

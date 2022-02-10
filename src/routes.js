@@ -1,7 +1,6 @@
 import HomePage from './pages/HomePage'
 import AboutUs from './pages/AboutUs.jsx'
-import { Login } from './pages/Login.jsx'
-import { TodoApp } from './pages/TodoApp'
+import TodoApp from './pages/TodoApp'
 
 
 const routes = [{
@@ -15,10 +14,6 @@ const routes = [{
     {
         path: '/about',
         component: AboutUs,
-    },
-    {
-        path: '/login',
-        component: Login,
     }
 ]
 

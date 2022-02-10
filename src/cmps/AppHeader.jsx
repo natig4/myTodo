@@ -9,7 +9,6 @@ const AppHeader = () => {
         </NavLink>
 
         <nav className='nav-links clean-list flex align-center'>
-          <NavLink to='/login'>Login</NavLink> |
           <NavLink to='/todo'>Todos</NavLink>|
           <NavLink to='/about'>About</NavLink>
         </nav>
