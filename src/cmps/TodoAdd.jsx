@@ -14,11 +14,7 @@ export const TodoAdd = ({ showNewTodo, onSave, todo, setTodo }) => {
       console.log('Enter a Todo title please');
       return;
     }
-    if (todo) {
-      onSave({ ...todo, title });
-    } else {
-      onSave({ title });
-    }
+    onSave(todo ? { ...todo, title } : { title });
     setTitle('');
     onCloseAddTodo();
   };

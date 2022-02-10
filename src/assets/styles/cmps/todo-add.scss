@@ -8,8 +8,8 @@
     gap: 1rem;
     svg {
         position: absolute;
-        right: 8px;
-        top: 8px;
+        right: 0.5rem;
+        top: 0.5rem;
         height: 2rem;
         width: 2rem;
     }
@@ -37,7 +37,7 @@
         .new-todo-form-btn {
             text-transform: uppercase;
             letter-spacing: 1px;
-            word-spacing: 10px;
+            word-spacing: rem(10px);
             background-color: #01ff01;
             padding: 0.5rem 3rem;
         }
