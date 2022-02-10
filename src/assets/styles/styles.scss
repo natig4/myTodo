@@ -1,0 +1,17 @@
+// Setup
+@import 'setup/typography.scss';
+@import 'setup/functions.scss';
+@import 'setup/variables.scss';
+// Basics
+@import 'base/helpers.scss';
+@import 'base/base.scss';
+// PAGES
+@import 'pages/home-page.scss';
+@import 'pages/todo-app.scss';
+// Components
+@import 'cmps/app-header.scss';
+@import 'cmps/app-footer.scss';
+@import 'cmps/todo-list.scss';
+@import 'cmps/todo-preview.scss';
+@import 'cmps/backdrop.scss';
+@import 'cmps/todo-add.scss';

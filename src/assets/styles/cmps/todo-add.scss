@@ -1,0 +1,43 @@
+.new-todo {
+    position: absolute;
+    margin-block-start: 1rem;
+    background-color: #8d99ae;
+    width: 50%;
+    height: 80%;
+    z-index: 1000;
+    gap: 1rem;
+    svg {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        height: 2rem;
+        width: 2rem;
+    }
+    .new-todo-form {
+        padding: 1rem;
+        gap: 1rem;
+        width: 100%;
+        &>* {
+            background-color: #edf2f4;
+            font-size: rem(22px);
+            padding: 1rem 0.5rem;
+            color: #1d3557;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        input {
+            font-family: charlie;
+            border: none;
+            width: 100%;
+        }
+         ::placeholder {
+            font-family: charlie;
+            color: #1d3557;
+        }
+        .new-todo-form-btn {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.5rem 3rem;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.app-header {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid black;
+    .nav-links {
+        gap: 1rem;
+    }
+    .logo {
+        font-size: rem(22px);
+        font-family: outfit;
+    }
+}

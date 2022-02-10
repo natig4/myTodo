@@ -1,0 +1,25 @@
+.todo-preview-container {
+    width: 100%;
+    padding: 1rem;
+    font-size: rem(14px);
+    background-color: #edf2f4;
+    .todo-preview {
+        flex-grow: 1;
+        h3 {
+            font-size: rem(22px);
+        }
+    }
+    .todo-preview-actions {
+        gap: 1rem;
+        svg {
+            font-size: rem(22px);
+        }
+        .todo-edit-btn {
+            font-size: rem(22px);
+            background-color: #8d99ae;
+            border-radius: 3px;
+            padding: 0 1rem;
+            font-weight: bold;
+        }
+    }
+}
