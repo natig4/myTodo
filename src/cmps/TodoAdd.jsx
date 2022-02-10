@@ -29,7 +29,7 @@ export const TodoAdd = ({ showNewTodo, onSave, todo, setTodo }) => {
   return (
     <>
       <Card className='new-todo flex column align-center'>
-        <h1>Add a new todo </h1>
+        <h1>Add a Todo </h1>
         <form
           className='new-todo-form flex column align-center'
           onSubmit={onSubmit}>
