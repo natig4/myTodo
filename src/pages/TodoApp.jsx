@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { API, graphqlOperation } from 'aws-amplify';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
+
 import { createTodo, updateTodo, deleteTodo } from '../graphql/mutations';
 import { listTodos } from '../graphql/queries';
 
@@ -15,7 +16,9 @@ const TodoApp = () => {
   const [todos, setTodos] = useState();
   const [currTodo, setCurrTodo] = useState();
   const [showNewTodo, setShowNewTodo] = useState();
-  const [user, setUser] = useState(API.Auth.user.username);
+  const history = useHistory();
+
+  const user = useSelector(state => state.user);
 
   useEffect(() => {
     loadTodos();
@@ -55,7 +58,20 @@ const TodoApp = () => {
     }
     loadTodos();
   };
-
+  {
+    if (!user)
+      return (
+        <div className='no-user flex align-center'>
+          <h1>Login here to view your todos </h1>
+          <Button
+            onClick={() => {
+              history.push('/login');
+            }}
+            txt={'Login'}
+            className='login-btn'></Button>
+        </div>
+      );
+  }
   return (
     <>
       {showNewTodo && (
@@ -84,4 +100,5 @@ const TodoApp = () => {
     </>
   );
 };
-export default withAuthenticator(TodoApp);
+
+export default TodoApp;

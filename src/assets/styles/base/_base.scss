@@ -48,7 +48,13 @@ main {
     cursor: pointer;
     background-color: #80808080;
     border-radius: 3px;
-    padding: 0 0.5rem;
+    padding: 0.5rem 1rem;
     font-weight: bold;
     font-size: rem(18px);
+    font-family: charlie;
+    color: #1d3557;
+}
+
+.login-btn {
+    background-color: #45e215;
 }

@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router';
-
+import { Auth } from 'aws-amplify';
 import routes from './routes';
 
 import AppHeader from './cmps/AppHeader';
 import AppFooter from './cmps/AppFooter';
 
 const App = () => {
+  const user = Auth?.user?.username;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (user) dispatch({ type: 'SET_USER', user });
+  }, []);
   return (
     <div className='page-contianer flex column'>
-      <AppHeader />
+      <AppHeader user={user} />
       <main className='flex justify-center'>
         <Switch>
           <Route path='/' exact>
