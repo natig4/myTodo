@@ -3,9 +3,12 @@
     padding: 1rem;
     font-size: rem(14px);
     background-color: $clr3;
+    flex-wrap: wrap;
     .todo-preview {
         flex-grow: 1;
+        flex-wrap: wrap;
         gap: 0.5rem;
+        align-items: baseline;
         h3 {
             width: rem(200px);
             font-size: rem(22px);
@@ -13,7 +16,6 @@
         h4 {
             font-size: rem(18px);
             color: #0f3e91;
-            padding: 0 0.5rem;
         }
     }
     .todo-preview-actions {

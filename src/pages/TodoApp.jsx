@@ -39,8 +39,6 @@ const TodoApp = () => {
   };
 
   const onSave = async todo => {
-    const updatedTodo = { ...todo, user };
-    console.log(updatedTodo);
     try {
       await API.graphql(
         graphqlOperation(todo?.id ? updateTodo : createTodo, { input: todo })

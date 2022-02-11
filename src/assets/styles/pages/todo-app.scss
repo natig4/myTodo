@@ -5,17 +5,19 @@
     background-color: #355b6fba;
     gap: 1rem;
     .todo-header {
+        flex-wrap: wrap;
         padding: 0.5rem;
         border-block-end: 1px solid black;
         width: 100%;
         justify-content: end;
+        gap: 0.5rem;
         h1 {
             color: $clr3;
             word-spacing: rem(10px);
             margin: auto;
         }
         .add-new-todo-btn {
-            position: absolute;
+            position: realtive;
             word-spacing: rem(3px);
             background-color: $clr3;
         }
