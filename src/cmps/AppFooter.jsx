@@ -1,8 +1,9 @@
 const AppFooter = () => {
   return (
-    <div className='app-footer flex align-center'>
-      <h1>This is my footer</h1>
-    </div>
+    <section className='app-footer flex align-center'>
+      <div className='logo'>MyTodo</div>
+      <h3>© 2021 All Rights Reserved - Nati Gurevich</h3>
+    </section>
   );
 };
 

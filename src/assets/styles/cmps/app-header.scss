@@ -1,19 +1,22 @@
 .app-header {
     padding: 0.5rem 1rem;
-    border-bottom: 1px solid black;
+    header {
+        flex-wrap: wrap;
+    }
     .nav-links {
         gap: 1rem;
+        color: $clr3;
         a {
-            font-size: rem(20px);
+            font-size: 1.5rem;
         }
     }
     .logo {
-        font-size: rem(22px);
+        font-size: 2rem;
         font-family: outfit;
     }
     .sign-out-btn {
         background-color: #ef233c;
-        color: #edf2f4;
+        color: $clr3;
         padding: 0.2rem 1rem;
     }
     .login-btn {

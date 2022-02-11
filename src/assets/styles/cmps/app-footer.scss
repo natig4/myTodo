@@ -1,6 +1,11 @@
 .app-footer {
-    // padding: 0.5rem;
     color: $clr1;
-    border-top: 1px solid black;
     justify-content: center;
+    gap: 1rem;
+    .logo {
+        font-size: 1.375rem;
+        font-family: outfit;
+        font-weight: bold;
+        color: #ef233c;
+    }
 }
