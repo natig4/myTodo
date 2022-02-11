@@ -12,7 +12,7 @@ export const TodoAdd = ({ showNewTodo, onSave, todo, setTodo }) => {
   const onSubmit = e => {
     e.preventDefault();
     if (!formState?.name) {
-      console.log('Enter a Todo title please');
+      alert('Enter a Todo title please');
       return;
     }
     const { id } = todo;

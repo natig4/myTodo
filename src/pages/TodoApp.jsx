@@ -33,7 +33,12 @@ const TodoApp = () => {
     }
   };
 
-  const onAddBtn = todo => {
+  const onTodo = todo => {
+    console.log(todo);
+  };
+
+  const onAddBtn = (e, todo) => {
+    e.stopPropagation();
     todo && setCurrTodo(todo);
     setShowNewTodo(true);
   };
@@ -49,7 +54,8 @@ const TodoApp = () => {
     }
   };
 
-  const onRemove = async id => {
+  const onRemove = async (e, id) => {
+    e.stopPropagation();
     try {
       await API.graphql(graphqlOperation(deleteTodo, { input: { id } }));
     } catch (err) {
@@ -80,7 +86,12 @@ const TodoApp = () => {
           />
         </div>
         {todos?.length > 0 ? (
-          <TodoList todos={todos} onRemove={onRemove} onEdit={onAddBtn} />
+          <TodoList
+            todos={todos}
+            onRemove={onRemove}
+            onEdit={onAddBtn}
+            onTodo={onTodo}
+          />
         ) : (
           <h2>No Todos to show</h2>
         )}
