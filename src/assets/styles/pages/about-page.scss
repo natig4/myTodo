@@ -1,0 +1,12 @@
+.about-container {
+    gap: 8rem;
+    .creator {
+        &>div {
+            width: rem(250px);
+        }
+        gap: 1rem;
+        img {
+            border-radius: 25rem;
+        }
+    }
+}
