@@ -6,7 +6,9 @@ import { Button } from './UI/Button';
 export const TodoPreview = ({ todo, onRemove, onEdit, onTodo }) => {
   return (
     <Card
-      className='todo-preview-container flex align-center'
+      className={`todo-preview-container flex align-center ${
+        todo.isDone ? 'done' : ''
+      }`}
       onClick={() => {
         onTodo(todo);
       }}>

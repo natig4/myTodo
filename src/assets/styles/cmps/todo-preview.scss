@@ -5,6 +5,9 @@
     font-size: rem(14px);
     background-color: $clr3;
     flex-wrap: wrap;
+    &.done {
+        text-decoration: line-through;
+    }
     .todo-preview {
         flex-grow: 1;
         flex-wrap: wrap;
