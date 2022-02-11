@@ -1,6 +1,6 @@
 import HomePage from './pages/HomePage'
 import AboutUs from './pages/AboutUs.jsx'
-import Login from './pages/Login.jsx'
+import { Login } from './pages/LoginPage.jsx'
 import TodoApp from './pages/TodoApp'
 
 
