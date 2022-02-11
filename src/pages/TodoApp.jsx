@@ -34,7 +34,8 @@ const TodoApp = () => {
   };
 
   const onTodo = todo => {
-    console.log(todo);
+    todo.isDone = !todo.isDone;
+    onSave(todo);
   };
 
   const onAddBtn = (e, todo) => {
@@ -46,7 +47,9 @@ const TodoApp = () => {
   const onSave = async todo => {
     try {
       await API.graphql(
-        graphqlOperation(todo?.id ? updateTodo : createTodo, { input: todo })
+        graphqlOperation(todo?.id ? updateTodo : createTodo, {
+          input: { ...todo },
+        })
       );
       loadTodos();
     } catch (err) {

@@ -4,15 +4,15 @@ import Card from './UI/Card';
 import { Button } from './UI/Button';
 
 export const TodoPreview = ({ todo, onRemove, onEdit, onTodo }) => {
+  const classDone = todo.isDone ? 'done' : '';
   return (
     <Card
-      className={`todo-preview-container flex align-center ${
-        todo.isDone ? 'done' : ''
-      }`}
+      className={`todo-preview-container flex align-center ${classDone}`}
       onClick={() => {
-        onTodo(todo);
+        const { id, isDone } = todo;
+        onTodo({ id, isDone });
       }}>
-      <div className='todo-preview flex'>
+      <div className={`todo-preview flex ${classDone}`}>
         <h3>{todo.name}</h3>
         <h4>{todo.description}</h4>
       </div>

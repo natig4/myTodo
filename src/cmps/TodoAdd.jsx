@@ -15,7 +15,7 @@ export const TodoAdd = ({ showNewTodo, onSave, todo, setTodo }) => {
       alert('Enter a Todo title please');
       return;
     }
-    const { id } = todo;
+    if (todo) var { id } = todo;
     const { name, description } = formState;
     onSave(todo ? { id, name, description } : formState);
     setFormState(initialState);

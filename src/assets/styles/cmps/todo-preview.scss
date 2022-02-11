@@ -6,13 +6,16 @@
     background-color: $clr3;
     flex-wrap: wrap;
     &.done {
-        text-decoration: line-through;
+        background-color: #99d98c;
     }
     .todo-preview {
         flex-grow: 1;
         flex-wrap: wrap;
         gap: 0.5rem;
         align-items: baseline;
+        &.done {
+            text-decoration: line-through;
+        }
         h3 {
             width: rem(200px);
             font-size: rem(22px);
