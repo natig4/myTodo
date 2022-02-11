@@ -1,6 +1,7 @@
 export const utilService = {
     makeId,
     capitalizeFirst,
+    titleCase
 }
 
 function makeId(length = 6) {
@@ -17,3 +18,11 @@ function makeId(length = 6) {
 function capitalizeFirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+function titleCase(phrase) {
+    return phrase
+        .toLowerCase()
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};

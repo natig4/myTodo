@@ -1,0 +1,6 @@
+.home-container {
+    gap: 1rem;
+    &>h1 {
+        font-size: rem(40px);
+    }
+}

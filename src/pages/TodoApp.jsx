@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { API, graphqlOperation } from 'aws-amplify';
 
+import { API, graphqlOperation } from 'aws-amplify';
 import { createTodo, updateTodo, deleteTodo } from '../graphql/mutations';
 import { listTodos } from '../graphql/queries';
 
 import { utilService } from '../services/util.service';
 import { TodoList } from '../cmps/TodoList';
-import Card from '../cmps/UI/Card';
+import { LoginMsg } from '../cmps/LoginMsg';
 import { TodoAdd } from '../cmps/TodoAdd';
+import Card from '../cmps/UI/Card';
 import { Button } from '../cmps/UI/Button';
 
 const TodoApp = () => {
   const [todos, setTodos] = useState();
   const [currTodo, setCurrTodo] = useState();
   const [showNewTodo, setShowNewTodo] = useState();
-  const history = useHistory();
 
   const user = useSelector(state => state.user);
 
@@ -38,6 +37,7 @@ const TodoApp = () => {
     todo && setCurrTodo(todo);
     setShowNewTodo(true);
   };
+
   const onSave = async todo => {
     const updatedTodo = { ...todo, user };
     console.log(updatedTodo);
@@ -50,6 +50,7 @@ const TodoApp = () => {
       console.log('error creating todo:', err);
     }
   };
+
   const onRemove = async id => {
     try {
       await API.graphql(graphqlOperation(deleteTodo, { input: { id } }));
@@ -58,21 +59,10 @@ const TodoApp = () => {
     }
     loadTodos();
   };
-  {
-    if (!user)
-      return (
-        <div className='no-user flex align-center'>
-          <h1>Login here to view your todos </h1>
-          <Button
-            onClick={() => {
-              history.push('/login');
-            }}
-            txt={'Login'}
-            className='login-btn'></Button>
-        </div>
-      );
-  }
-  return (
+
+  return !user ? (
+    <LoginMsg />
+  ) : (
     <>
       {showNewTodo && (
         <TodoAdd
