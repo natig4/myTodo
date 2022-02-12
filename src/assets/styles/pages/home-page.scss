@@ -1,7 +1,24 @@
 .home-container {
     gap: 1rem;
     width: 67%;
+    background-color: #355b6fba;
+    color: $clr3;
+    padding-block-start: 4rem;
+    font-family: outfit;
+    align-items: center;
     &>h1 {
-        font-size: rem(40px);
+        font-size: 5.5rem;
+        @include for-mobile-layout {
+            font-size: 2rem;
+            padding-block-end: 4rem;
+        }
+    }
+    @include for-mobile-layout {
+        padding-block-start: 2rem;
+        box-shadow: unset;
+        background-color: transparent;
+        color: $clr1;
+        width: 95%;
+        align-items: baseline;
     }
 }

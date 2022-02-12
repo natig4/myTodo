@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
-
 import { useSelector, useDispatch } from 'react-redux';
+
 import { LoginMsg } from '../cmps/LoginMsg';
+import Card from '../cmps/UI/Card';
 import { utilService } from '../services/util.service';
 
 const HomePage = () => {
@@ -25,12 +26,12 @@ const HomePage = () => {
     })();
   }, []);
   return (
-    <div className='home-container flex column align-center'>
+    <Card className='home-container flex column'>
       <h1>Welcome To MyTodo</h1>
       <h2>{utilService.titleCase('in this app you can manage your todos')}</h2>
       <h3>{utilService.titleCase('those todos are unique per user!')}</h3>
       {!user && <LoginMsg />}
-    </div>
+    </Card>
   );
 };
 export default HomePage;
