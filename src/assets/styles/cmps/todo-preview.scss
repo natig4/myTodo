@@ -5,6 +5,7 @@
     font-size: rem(14px);
     background-color: $clr3;
     flex-wrap: wrap;
+    gap: 1rem;
     &.done {
         background-color: #99d98c;
     }
