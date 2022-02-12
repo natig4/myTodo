@@ -7,7 +7,7 @@ export const TodoPreview = ({ todo, onRemove, onEdit, onTodo }) => {
   const classDone = todo.isDone ? 'done' : '';
   return (
     <Card
-      className={`todo-preview-container flex align-center ${classDone}`}
+      className={`todo-preview-container flex ${classDone}`}
       onClick={() => {
         const { id, isDone } = todo;
         onTodo({ id, isDone });
