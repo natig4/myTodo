@@ -1,9 +1,27 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Auth } from 'aws-amplify';
+
+import { useSelector, useDispatch } from 'react-redux';
 import { LoginMsg } from '../cmps/LoginMsg';
 import { utilService } from '../services/util.service';
 
 const HomePage = () => {
-  const user = useSelector(state => state.user);
+  let user = useSelector(state => state.user);
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  useEffect(async () => {
+    if (!user)
+      try {
+        user = await Auth.currentAuthenticatedUser();
+        user = user?.attributes.email;
+        dispatch({ type: 'SET_USER', user });
+        history.push('/todo');
+      } catch (err) {
+        console.log(err);
+      }
+  }, []);
   return (
     <div className='home-container flex column align-center'>
       <h1>Welcome To MyTodo</h1>
