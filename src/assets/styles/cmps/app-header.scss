@@ -8,18 +8,27 @@
         color: $clr3;
         a {
             font-size: 1.5rem;
+            @include for-mobile-layout {
+                font-size: 1rem;
+            }
         }
     }
     .logo {
         font-size: 2rem;
         font-family: outfit;
+        @include for-mobile-layout {
+            font-size: 1.5rem;
+        }
+    }
+    .btn {
+        @include for-mobile-layout {
+            font-size: 1rem;
+            padding: 0.2rem 0.5rem;
+        }
+        padding: 0.2rem 1rem;
     }
     .sign-out-btn {
         background-color: #ef233c;
         color: $clr3;
-        padding: 0.2rem 1rem;
-    }
-    .login-btn {
-        padding: 0.2rem 1rem;
     }
 }

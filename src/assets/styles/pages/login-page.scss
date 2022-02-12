@@ -1,4 +1,7 @@
 .login-page-btn {
     position: absolute;
     z-index: 11;
+    @include for-mobile-layout {
+        top: 69%;
+    }
 }

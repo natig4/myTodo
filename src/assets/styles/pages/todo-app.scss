@@ -6,6 +6,11 @@
     margin: 2rem 1rem;
     background-color: #355b6fba;
     gap: 1rem;
+    overflow: auto;
+    @include for-mobile-layout {
+        width: 95%;
+        margin: 1rem;
+    }
     .todo-header {
         flex-wrap: wrap;
         padding: 0.5rem;
@@ -17,11 +22,17 @@
             color: $clr3;
             word-spacing: rem(10px);
             flex: 1;
+            @include for-mobile-layout {
+                font-size: 1.3rem;
+            }
         }
         .add-new-todo-btn {
             position: realtive;
             word-spacing: rem(3px);
             background-color: $clr3;
+            @include for-mobile-layout {
+                font-size: 0.8rem;
+            }
         }
     }
 }

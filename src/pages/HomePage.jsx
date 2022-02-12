@@ -11,16 +11,18 @@ const HomePage = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  useEffect(async () => {
-    if (!user)
-      try {
-        user = await Auth.currentAuthenticatedUser();
-        user = user?.attributes.email;
-        dispatch({ type: 'SET_USER', user });
-        history.push('/todo');
-      } catch (err) {
-        console.log(err);
-      }
+  useEffect(() => {
+    (async () => {
+      if (!user)
+        try {
+          user = await Auth.currentAuthenticatedUser();
+          user = user?.attributes.email;
+          dispatch({ type: 'SET_USER', user });
+          history.push('/todo');
+        } catch (err) {
+          console.log(err);
+        }
+    })();
   }, []);
   return (
     <div className='home-container flex column align-center'>

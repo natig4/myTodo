@@ -6,6 +6,9 @@
     padding-block-end: 2rem;
     z-index: 1000;
     gap: 1rem;
+    @include for-mobile-layout {
+        width: 95%;
+    }
     svg {
         position: absolute;
         right: 0.5rem;
@@ -40,6 +43,9 @@
             word-spacing: rem(10px);
             background-color: #01ff01;
             padding: 0.5rem 3rem;
+            @include for-mobile-layout {
+                width: 100%;
+            }
         }
     }
 }
