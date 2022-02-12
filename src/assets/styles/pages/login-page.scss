@@ -1,7 +1,14 @@
-.login-page-btn {
-    position: absolute;
-    z-index: 11;
-    @include for-mobile-layout {
-        top: 69%;
+.login-container {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    .login-page-btn {
+        position: relative;
+        z-index: 11;
+        border-radius: 0;
+        background-color: white;
+    }
+    >div {
+        position: relative !important;
     }
 }

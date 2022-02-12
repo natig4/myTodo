@@ -4,7 +4,7 @@ import { Button } from '../cmps/UI/Button';
 export const Login = () => {
   const history = useHistory();
   return (
-    <>
+    <section className='login-container flex column'>
       <Button
         onClick={() => {
           history.goBack();
@@ -13,6 +13,6 @@ export const Login = () => {
         txt='Go Back'
       />
       <LoginCmp />
-    </>
+    </section>
   );
 };
